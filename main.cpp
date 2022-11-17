@@ -1,93 +1,69 @@
 #include <iostream>
 #include <string>
+#include <stdlib.h>
 using namespace std;
 
+#include "Usuario.h"
 #include "Cuenta.h"
+#include "Movimiento.h"
 #include "Ingreso.h"
 #include "Egreso.h"
+#include "Transferencia.h"
 
+// ----------------------------------------------------------------------------------------
 
 int main(){
+
+    // ------------ CLASE USUARIO ---------------------------------------------------------
+    Usuario user1;
+    user1.setUsername("Emiliano64");
+    user1.setPassword("equisde123");
+
+    cout<<"\nUsername: "<<user1.getUsername()<<"\nPassword: "<<user1.getPassword()<<endl;
+
+    // ------------ CLASE CUENTA ----------------------------------------------------------
+    Cuenta account1;
+    account1.setBeneficiario("Emiliano Gomez Gonzalez");
+    account1.setSaldo(48);
+    account1.setNumCuenta("170804");
     
-    // Variables para el 1er Objeto
-    string nombre, num_cuenta;
-    int opc;
-    float saldo;
+    cout<<"\nBeneficiario: "<<account1.getBeneficiario()<<"\nSaldo actual: $"<<account1.getSaldo()<<"\nNo. de Cuenta: "<<account1.getNumCuenta()<<endl;
 
-    // Variables para el 2do Objeto 
-    float montoIngreso;
-    string conceptoIngreso;
+    // ------------- CLASE INGRESO ---------------------------------------------------------
 
-    //Variables para el 3er Objeto
-    float montoEgresos;
-    string conceptoEgreso;
-    string cuenta_destino;
-
-// ---------------- PRIMER OBJETO ---------------------------------------
-     
-
-    cout<<"\tBienvenido a su banca virtual"<<endl;
+    Ingreso nomina;
+    nomina.setMonto(8000);
+    nomina.setConcepto("Quincena");
+    nomina.setFecha("01/08/2012");
     
-    cout<<"Ingresa tu nombre: "; cin>>nombre;
-    cout<<"Ingresa tu numero de cuenta (cualquier numero por el momento): "; cin>>num_cuenta;
-    cout<<"Ingresa la cant. de dinero con el que deseas abrir la cuenta: $"; cin>>saldo;
+    cout<<"\nHas depositado a tu cuenta.\n"<<"Monto: $"<<nomina.getMonto()<<"\nConcepto: "<<nomina.getConcepto()<<"\nFecha: "<<nomina.getFecha()<<endl;
+  
+    // ------------- CLASE EGRESO ------------------------------------------------------------
 
-    //Creo el 1er Objeto (Clase Cuenta)
-    Cuenta ahorro (nombre,num_cuenta,saldo);
+    Egreso cargoNetflix;
+    cargoNetflix.setMonto(199);
+    cargoNetflix.setConcepto("Pago de Netflix");
+    cargoNetflix.setFecha("10/10/2022");
 
-    cout<<"Tus acciones"<<endl;
-    cout<<"1. Entrar"<<endl;
-    cout<<"2. Consultar saldo"<<endl;
-    cout<<"3. Salir"<<endl;
-    cout<<"Elige: "; cin>>opc;
-
-    switch(opc){
-        case 1: 
-        ahorro.entrar();
-        break;
-        case 2:
-        ahorro.consultar();
-        break;
-        case 3:
-        ahorro.salir();
-        break;
-        default:
-        cout<<"No valido :/";
-        break;
-    }
-
-//---------------- SEGUNDO OBJETO --------------------------------------------------
+    cout<<"\nSe ha cargado a tu cuenta $"<<cargoNetflix.getMonto()<<"\nConcepto: "<<cargoNetflix.getConcepto()<<"\nFecha: "<<cargoNetflix.getFecha()<<endl;
 
 
+    // -------------- CLASE TRANSFERENCIA ---------------------------------------------------
 
-    cout<<"\nIngresa el monto que quieres depositar a tu cuenta: $"; cin>>montoIngreso;
-    cout<<"Agrega el concepto de ese movimiento: "; cin>>conceptoIngreso;
+    Transferencia renta;
+    renta.setMonto(7500);
+    renta.setConcepto("Renta del mes de Noviembre");
+    renta.setFecha("28/09/2022");
+    renta.setCuentaDestino("0393837261548");
+    renta.setBeneficiarioDestino("Ernesto Gonzalez Miranda");
 
-    // Creamos 2do Objeto (Clase Ingreso)
-    Ingreso bono (montoIngreso,conceptoIngreso);
-    bono.deposito();
-
-
-//---------------------- TERCER OBJETO ------------------------------------------------------
-
-    cout<<"\nIngresa el monto que deseas transferir: $"; cin>>montoEgresos;
-    cout<<"Agrega el concepto de la transferencia: "; cin>>conceptoEgreso;
-    cout<<"Escribe el nombre de la persona a quien transfieres: "; cin>>cuenta_destino;
-
-    //Creamos el 3er Objeto (Clase Egresos)
-    Egreso transferencia (montoEgresos,conceptoEgreso,cuenta_destino);
-    transferencia.transferir();
+    cout<<"\nTransferencia exitosa."<<"\nMonto: $"<<renta.getMonto()<<"\nConcepto: "<<renta.getConcepto()<<"\nFecha: "<<renta.getFecha()<<"\nCuenta Destino: "<<renta.getCuentaDestino()<<"\nBeneficiario Destino: "<<renta.getBeneficiarioDestino()<<endl;
 
 
 
 
 
-
-
-
-
-
-
-return 0;
+    system("pause");
+    return 0;
 }
   

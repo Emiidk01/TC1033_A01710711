@@ -3,61 +3,64 @@
 using namespace std;
 
 class Egreso {
-    private: //Atributos
-    float monto;
-    string concepto;
-    string cuenta_destino;
+    private: //Atributos (Heredados por Clase Movimiento)
+        float monto;
+        string concepto;
+        string fecha;
 
     public: //Metodos
-        Egreso(float,string); //Constructor 1
-        Egreso(float,string,string); //Constructor 2 (transferencias)
-        void transferir();
-        void retirar();
+        Egreso(); //Constructor 
 
-    //Getters 
-    float getMonto(){
-        return monto;
-    }
+        //Metodos de la clase cuenta 
+        
+        void retirarCuenta();
 
-    string getConcepto(){
-        return concepto;
-    }
+        //Metodos contructores y modificadores  
+        void setMonto(float);
+        void setConcepto(string);
+        void setFecha(string);
 
-    //Setters
-    void setMonto(float mont){
-        monto = mont;
-    }
-
-    void setConcepto (string concep){
-        concepto = concep;
-    }
-
-
+        float getMonto();
+        string getConcepto();
+        string getFecha();
 };
 
-//Constructor 1
+//Constructor 
 
-Egreso::Egreso(float montoC,string conceptC){
-    monto = montoC;
-    concepto = conceptC;
+Egreso::Egreso(){
 }
 
+//Establecer valores a los atributos 
 
-//Constructor 2 (Transferencias)
+void Egreso::setMonto(float m){
+    monto = m;
+}
 
-Egreso::Egreso(float montoC,string conceptC,string cuentaDes){
-    monto = montoC;
-    concepto = conceptC;
-    cuenta_destino = cuentaDes;
+void Egreso::setConcepto(string co){
+    concepto = co;
+}
+
+void Egreso::setFecha(string fe){
+    fecha = fe;
+}
+
+float Egreso::getMonto(){
+    return monto;
+}
+
+string Egreso::getConcepto(){
+    return concepto;
+}
+
+string Egreso::getFecha(){
+    return fecha;
 }
 
 
 //Definir los metodos
-void Egreso::retirar(){
-    cout<<"Has retirado de tu cuenta la cantidad de $"<<monto<<". Por concepto de: "<<concepto<<endl;
-}
 
-void Egreso::transferir(){
-    cout<<"Transferencia exitosa de $"<<monto<<" a "<<cuenta_destino<<". Por concepto de: "<<concepto<<endl;
-} 
+void Egreso::retirarCuenta(){
+
+
+}
 
