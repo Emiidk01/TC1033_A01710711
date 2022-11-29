@@ -1,102 +1,41 @@
+#ifndef TRANSFERENCIA_H
+#define TRANSFERENCIA_H
+
 #include <iostream>
-#include <string>
+#include "Egreso.h"
 using namespace std;
 
-class Transferencia{
-private:
-    //Atributos heredados por Egreso
-    float monto;
-    string concepto;
-    string fecha;
-    //Atributos propios
-    string cuentaDestino;
-    string beneficiarioDestino;
+class Transferencia : public Egreso{
+    private: //Atributos (Heredados por Clase Egreso)
+        string cuentaDestino;
+        string beneficiarioDestino;
 
-public:
-        Transferencia(); //Constructor 
+    public: //Metodos
+        Transferencia(float,string,string,string,string,string); //Constructor 
 
         //Metodos de la clase cuenta 
-        
-        void retirarCuenta();
-
-        //Metodos contructores y modificadores  
-        void setMonto(float);
-        void setConcepto(string);
-        void setFecha(string);
-
-        float getMonto();
-        string getConcepto();
-        string getFecha();
-
-        //De los atributos propios
-        void setCuentaDestino(string);
-        void setBeneficiarioDestino(string);
-
-        string getCuentaDestino();
-        string getBeneficiarioDestino();
-
-
-  
-
+        void mostrarTransferencia();
 
 };
 
-//Constructor 
+//Constructor Transferencia
+Transferencia::Transferencia(float _monto,string _concepto,string _fecha,string _tipoEgreso, string _cuentDest ,string _benefDest) :
+Egreso (_monto,_concepto,_fecha, _tipoEgreso) {
 
-Transferencia::Transferencia(){
-}
-
-//Establecer valores a los atributos 
-
-void Transferencia::setMonto(float m){
-    monto = m;
-}
-
-void Transferencia::setConcepto(string co){
-    concepto = co;
-}
-
-void Transferencia::setFecha(string fe){
-    fecha = fe;
-}
-
-float Transferencia::getMonto(){
-    return monto;
-}
-
-string Transferencia::getConcepto(){
-    return concepto;
-}
-
-string Transferencia::getFecha(){
-    return fecha;
-}
-
-
-// Establecer valores a los atributos propios
-void Transferencia::setCuentaDestino(string cd){
-    cuentaDestino = cd;
-}
-
-
-void Transferencia::setBeneficiarioDestino(string bd){
-    beneficiarioDestino = bd;
-}
-
-string Transferencia::getCuentaDestino(){
-    return cuentaDestino;
-}
-
-string Transferencia::getBeneficiarioDestino(){
-    return beneficiarioDestino;
-}
-
-
-
-
-//Definir los metodos
-
-void Transferencia::retirarCuenta(){
-
+    cuentaDestino = _cuentDest;
+    beneficiarioDestino = _benefDest;
 
 }
+
+//Metodo mostrar Egreso
+void Transferencia::mostrarTransferencia(){
+    cout<<"\nTransferencia exitosa!"<<endl;
+    cout<<"Monto: $"<<monto<<endl;
+    cout<<"Concepto: "<<concepto<<endl;
+    cout<<"Tipo de Transferencia: "<<tipoEgreso<<endl;
+    cout<<"Cuenta destino: "<<cuentaDestino<<endl;
+    cout<<"Beneficiario destino: "<<beneficiarioDestino<<endl;
+
+}
+
+#endif

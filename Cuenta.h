@@ -1,13 +1,23 @@
-#include <string>
+#ifndef CUENTA_H
+#define CUENTA_H
+
+#include <iostream>
+using namespace std;
+
+#include "Movimiento.h"
+
 
 class Cuenta {
     private: //Atributos
         string beneficiario;
         float saldo = 0;
-        string numCuenta;
+        string numCuenta = "000001";
         
+       
     public: //Metodos
         Cuenta(); //Constructor
+        Cuenta(string); //Constructor 2
+        
 
     //Metodos de la clase Cuenta
 
@@ -19,21 +29,32 @@ class Cuenta {
         void setBeneficiario(string);
         void setSaldo (float);
         void setNumCuenta (string);
+        
 
         string getBeneficiario();
         float getSaldo();
         string getNumCuenta(); 
+
       
 };
 
-//Constructor 
+//Constructor 1
 
 Cuenta::Cuenta(){
 }
 
+//Constructor 2 
+
+Cuenta::Cuenta(string _benef){
+    beneficiario = _benef;
+}
+
+
+
 
 //Establecer valores a los atributos
 
+//Setters
 void Cuenta::setBeneficiario(string b){
     beneficiario = b;
 }
@@ -46,6 +67,10 @@ void Cuenta::setNumCuenta(string nc){
     numCuenta = nc;   
 }
 
+
+
+
+//Getters
 string Cuenta::getBeneficiario(){
     return beneficiario;
 }
@@ -57,6 +82,8 @@ float Cuenta::getSaldo(){
 string Cuenta::getNumCuenta(){
     return numCuenta;
 }
+
+
 
 
 // Definir los metodos
@@ -71,7 +98,12 @@ void Cuenta::consultarDatos(){
     cout<<"Beneficiario: "<<beneficiario<<"\n"<<"No. de Cuenta: "<<numCuenta<<"\n"<<endl;
 }
 
+//Metodo salir 
 void Cuenta::salir(){
     cout<<"Hasta luego, "<<beneficiario<<"."<<endl;
 }
 
+
+
+
+#endif

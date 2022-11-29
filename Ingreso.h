@@ -1,66 +1,38 @@
+#ifndef INGRESO_H
+#define INGRESO_H
+
+
 #include <iostream>
-#include <string>
+#include "Movimiento.h"
 using namespace std;
 
-class Ingreso {
+class Ingreso : public Movimiento{
     private: //Atributos (Heredados por Clase Movimiento)
-        float monto;
-        string concepto;
-        string fecha;
-
+       string tipoIngreso;
     public: //Metodos
-        Ingreso(); //Constructor 
-
-        //Metodos de la clase cuenta 
+        Ingreso(float,string,string,string); //Constructor 
         
-        void depositarCuenta();
+        //Metodos de la clase cuenta 
+        void mostrarIngreso();
 
-        //Metodos contructores y modificadores  
-        void setMonto(float);
-        void setConcepto(string);
-        void setFecha(string);
-
-        float getMonto();
-        string getConcepto();
-        string getFecha();
 };
 
-//Constructor 1
-
-Ingreso::Ingreso(){
-}
-
-//Establecer valores a los atributos 
-
-void Ingreso::setMonto(float m){
-    monto = m;
-}
-
-void Ingreso::setConcepto(string co){
-    concepto = co;
-}
-
-void Ingreso::setFecha(string fe){
-    fecha = fe;
-}
-
-float Ingreso::getMonto(){
-    return monto;
-}
-
-string Ingreso::getConcepto(){
-    return concepto;
-}
-
-string Ingreso::getFecha(){
-    return fecha;
+//Constructor Ingreso
+Ingreso::Ingreso(float _monto,string _concepto,string _fecha,string _tipoIngreso) :
+Movimiento ( _monto, _concepto, _fecha){
+    tipoIngreso = _tipoIngreso;
 }
 
 
-//Definir los metodos
 
-void Ingreso::depositarCuenta(){
+//Metodo mostrar Ingreso
 
-
+void Ingreso::mostrarIngreso(){
+    cout<<"Ingreso Hecho Exitosamente!"<<endl;
+    cout<<"Monto: $"<<monto<<endl;
+    cout<<"Concepto: "<<concepto<<endl;
+    cout<<"Fecha: "<<fecha<<endl;
+    cout<<"Tipo de Egreso: "<<tipoIngreso<<endl;
 }
 
+#endif

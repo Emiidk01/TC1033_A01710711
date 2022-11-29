@@ -1,66 +1,38 @@
+#ifndef EGRESO_H
+#define EGRESO_H
+
+
 #include <iostream>
-#include <string>
+#include "Movimiento.h"
 using namespace std;
 
-class Egreso {
-    private: //Atributos (Heredados por Clase Movimiento)
-        float monto;
-        string concepto;
-        string fecha;
-
+class Egreso : public Movimiento{
+    protected: //Atributos (Heredados por Clase Movimiento)
+       string tipoEgreso;
     public: //Metodos
-        Egreso(); //Constructor 
+        Egreso(float,string,string,string); //Constructor 
 
         //Metodos de la clase cuenta 
-        
-        void retirarCuenta();
+        void mostrarEgreso();
 
-        //Metodos contructores y modificadores  
-        void setMonto(float);
-        void setConcepto(string);
-        void setFecha(string);
-
-        float getMonto();
-        string getConcepto();
-        string getFecha();
 };
 
-//Constructor 
-
-Egreso::Egreso(){
-}
-
-//Establecer valores a los atributos 
-
-void Egreso::setMonto(float m){
-    monto = m;
-}
-
-void Egreso::setConcepto(string co){
-    concepto = co;
-}
-
-void Egreso::setFecha(string fe){
-    fecha = fe;
-}
-
-float Egreso::getMonto(){
-    return monto;
-}
-
-string Egreso::getConcepto(){
-    return concepto;
-}
-
-string Egreso::getFecha(){
-    return fecha;
+//Constructor Egreso
+Egreso::Egreso(float _monto,string _concepto,string _fecha,string _tipoEgreso) :
+Movimiento ( _monto, _concepto, _fecha){
+    tipoEgreso = _tipoEgreso;
 }
 
 
-//Definir los metodos
 
-void Egreso::retirarCuenta(){
+//Metodo mostrar Ingreso
 
-
+void Egreso::mostrarEgreso(){
+    cout<<"\nEgreso de tu cuenta exitoso!"<<endl;
+    cout<<"Monto: $"<<monto<<endl;
+    cout<<"Concepto: "<<concepto<<endl;
+    cout<<"Fecha: "<<fecha<<endl;
+    cout<<"Tipo de Egreso: "<<tipoEgreso<<endl;
 }
 
+#endif
