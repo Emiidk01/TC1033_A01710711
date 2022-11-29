@@ -9,5 +9,8 @@ El programa tiene que poder preguntar al usuario por su numero de cuenta y nombr
 ESTE PROGRAMA NO SIRVE PARA REALIZAR ESTADOS FINANCIEROS EMPRESARIALES O CALCULAR IMPUESTOS. 
 ## ¿Cómo se usa?
 El programa te va a dar la bienvenida y te va a preguntar tu nombre, numero de cuenta, etc. Basicamente el programa te va guiando para que puedas realizar de manera optima las funciones. 
+## Otras Indicaciones
+Basicamente el main del proyecto se apoya de un switch para poder realizar lo que se quiere hacer de cada clase. Los numeros van de 1 a 6, pero de nuevo, el programa supone ser lo suficientemente intuitivo. 
+Otra cosa mas que aclarar: Se quito la clase Usuario y mejor meti un usuario y contraseña en el main, puedes estar tranquilo ya que no te va a pedir un username o password correctos. Te pedira que "Crees una cuenta" y los datos que tu le des te los tomara como correctos, y por lo tanto, podras continuar visualizando el codigo.
 
 ### - E
