@@ -4,7 +4,7 @@ Proyecto de Programacion Orientada a Objetos en C++
 Sistema de Banca Digital (SBD)
 ## INDICACIONES IMPORTANTES
 El programa se inicia con un USUARIO y CONTRASEÑA. 
-Este es acceso:
+### Este es acceso: 
 Usuario: emi17
 Password: proyecto
 
