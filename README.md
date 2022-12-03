@@ -5,8 +5,8 @@ Sistema de Banca Digital (SBD)
 ## INDICACIONES IMPORTANTES
 El programa se inicia con un USUARIO y CONTRASEÑA. 
 ### Este es acceso: 
-Usuario: emi17
-Password: proyecto
+#### Usuario: emi17
+#### Password:  proyecto
 
 De cualquier forma tambine vienen como comentario en el main.
 
