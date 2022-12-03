@@ -1,58 +1,68 @@
 #ifndef CUENTA_H
 #define CUENTA_H
 
+#include "Movimiento.h"
+#include "Ingreso.h"
+#include "Egreso.h"
+
 #include <iostream>
 using namespace std;
-
-#include "Movimiento.h"
-
 
 class Cuenta {
     private: //Atributos
         string beneficiario;
         float saldo = 0;
         string numCuenta = "000001";
+        Ingreso ingreso1;
+        Egreso egreso1;
         
-       
+        
     public: //Metodos
-        Cuenta(); //Constructor
-        Cuenta(string); //Constructor 2
+        //Constructores
+        Cuenta(); 
+        Cuenta(string); 
+        Cuenta(float, Ingreso);
+        Cuenta(float, Egreso);
         
-
-    //Metodos de la clase Cuenta
-
-        void consultarSaldo();
-        void consultarDatos(); 
-        void salir ();
-    
-    //Metodos constructores y modificadores
+        //Setters
         void setBeneficiario(string);
         void setSaldo (float);
         void setNumCuenta (string);
-        
-
+    
+        //Getters
         string getBeneficiario();
         float getSaldo();
         string getNumCuenta(); 
+        
+        //Metodos de la Clase
+        void consultarDatos(); 
+        float sumarCuenta();
+        float restarCuenta();
+        void salir ();
 
       
 };
 
-//Constructor 1
+//Constructores para Cuenta
 
 Cuenta::Cuenta(){
+    saldo = 0;
 }
-
-//Constructor 2 
 
 Cuenta::Cuenta(string _benef){
     beneficiario = _benef;
 }
 
+Cuenta::Cuenta(float _saldo, Ingreso _ingreso){
+    saldo = _saldo;
+    ingreso1 = _ingreso;
+}
 
+Cuenta::Cuenta(float _saldo, Egreso _egreso){
+    saldo = _saldo;
+    egreso1 = _egreso;
+}
 
-
-//Establecer valores a los atributos
 
 //Setters
 void Cuenta::setBeneficiario(string b){
@@ -66,8 +76,6 @@ void Cuenta::setSaldo(float sa){
 void Cuenta::setNumCuenta(string nc){
     numCuenta = nc;   
 }
-
-
 
 
 //Getters
@@ -84,26 +92,31 @@ string Cuenta::getNumCuenta(){
 }
 
 
+//Metodos
 
 
-// Definir los metodos
-
-/*Para consultar el saldo de la cuenta*/
-void Cuenta::consultarSaldo(){
-    cout<<"Usted tiene: $"<<saldo<<" en su cuenta."<<endl;
+//Para consultar los datos de la cuenta (beneficiario y numero de cuenta)//
+void Cuenta::consultarDatos(){
+    cout<<"\n\t\tBeneficiario: "<<beneficiario<<"\n"<<"\t\tNo. de Cuenta: "<<numCuenta<<"\n"<<endl;
 }
 
-/*Para consultar los datos de la cuenta (beneficiario y numero de cuenta)*/
-void Cuenta::consultarDatos(){
-    cout<<"Beneficiario: "<<beneficiario<<"\n"<<"No. de Cuenta: "<<numCuenta<<"\n"<<endl;
+//Metodo Sumar Cuenta
+float Cuenta::sumarCuenta(){
+    saldo = saldo + ingreso1.getMonto();
+    return saldo;
+}
+
+//Metodo Restar Cuenta
+float Cuenta::restarCuenta(){
+    saldo = saldo - egreso1.getMonto();
+    return saldo;
 }
 
 //Metodo salir 
 void Cuenta::salir(){
-    cout<<"Hasta luego, "<<beneficiario<<"."<<endl;
+    cout<<"\t\t----------------- Hasta luego, "<<beneficiario<<". ----------------"<<endl;
 }
 
-
-
+//FIN 
 
 #endif
