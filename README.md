@@ -8,7 +8,7 @@ El programa se inicia con un USUARIO y CONTRASEÑA.
 #### Usuario: emi17
 #### Password:  proyecto
 
-De cualquier forma tambine vienen como comentario en el main.
+De cualquier forma tambien vienen como comentario en el main.
 
 ## ¿De qué trata este programa?
 Este programa trata de una banca digital en la que puedes abrir una cuenta, misma donde podras interactuar con tus ingresos y egresos. 
